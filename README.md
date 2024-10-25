@@ -11,3 +11,19 @@ TS time!
 ```
     npm install typescript --save-dev
 ```
+- Corremos TS:
+```
+    npx tsc
+```
+- Config en `tsconfig.json`:
+
+```json
+    {
+    "include": ["src"],
+    "compilerOptions": {
+        ...
+        "outDir": "./build"
+    }
+    }
+```
+
