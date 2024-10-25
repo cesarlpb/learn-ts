@@ -2,7 +2,7 @@
   "name": "learn-ts",
   "version": "1.0.0",
   "description": "TS time",
-  "main": "index.js",
+  "main": "index.ts",
   "scripts": {},
   "repository": {
     "type": "git",
