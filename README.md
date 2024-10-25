@@ -27,3 +27,8 @@ TS time!
     }
 ```
 
+Build (genera `.js` a partir de `.ts`):
+```
+    npx tsc
+```
+
