@@ -1,6 +1,10 @@
 # learn-ts
 TS time!
 
+Teoría: https://www.w3schools.com/typescript/typescript_intro.php
+
+---
+
 ## Node
 - Instalar Node 20 o 22.10.0: https://nodejs.org/en/download/package-manager
 - Comprobar que funciona el comando `node -v`
