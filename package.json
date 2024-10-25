@@ -1,0 +1,23 @@
+{
+  "name": "learn-ts",
+  "version": "1.0.0",
+  "description": "TS time",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesarlpb/learn-ts.git"
+  },
+  "keywords": [
+    "typescript"
+  ],
+  "author": "César P.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cesarlpb/learn-ts/issues"
+  },
+  "homepage": "https://github.com/cesarlpb/learn-ts#readme",
+  "devDependencies": {
+    "typescript": "^5.6.3"
+  }
+}
