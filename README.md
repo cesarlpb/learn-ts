@@ -32,3 +32,20 @@ Build (genera `.js` a partir de `.ts`):
     npx tsc
 ```
 
+## Comprobaciones de tipos en runtime (.js) con Zod:
+
+- Carpeta [web](./web/):
+```
+    npm install install vite zod 
+```
+- Instalar dependencias: `npm install`
+- Ejecutar entorno de desarrollo: `npm run dev`
+
+- Build: 
+```
+    npm build
+```
+
+Genera carpeta `dist` con archivos
+
+
