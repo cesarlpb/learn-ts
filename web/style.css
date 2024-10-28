@@ -1,10 +1,16 @@
 /* Selector de clase container */
 /* las clases se pueden repetir */
 .container {
-    background-color: brown;
+    background-color: rgb(124, 27, 27);
     padding: 1rem; /* 1rem = 16px */
-    max-width: 400px;
+    width: 25vw;
+    min-width: 300px;
     margin: 0 auto; /* centrado hhorizontal con margin */
+    height: calc(100vh - 175px); 
+    /* 
+        vw := unidades viewport en ancho (width)
+        vh := unidades viewport en altura (height)
+    */
 }
 /* Selector de id */
 /* id -> debe ser único en el documento */
@@ -20,12 +26,12 @@
     margin-bottom: 1rem;
 }
 .row {
-    border: 1px solid black;
+    /* border: 1px solid black; */
     display: flex;
     justify-content: space-around;
     align-items: center;
     min-height: 2rem;
-    background-color: burlywood;
+    /* background-color: burlywood; */
     color:black;
 }
 /* 
@@ -44,17 +50,59 @@ left/right - izq / der
 }
 /* Selectores de div dentro de clase row */
 .row > div {
-    background-color: lightgray;
+    background-color: burlywood;
     padding: 0.33rem;
-    margin: 0.25rem;
-    width: 1.5rem;
+    margin: 0.5rem 0.5rem; /* top/bottom left/right */
+    width: 2.5rem;
     text-align: center;
     border-radius: 0.25rem;
-    box-shadow: 1px 1px gray;
+    box-shadow: 1px 1px black;
 }
 /* hover := acción de colocar el cursor por encima de un elemento (no hace falta hacer click) */
 .row > div:hover {
     background-color: gray;
     box-shadow: 1px 1px lightgrey;
     top: 1px;
+}
+
+/* 
+<parent>
+    <child>
+    ...
+    </child>
+</parent>
+
+parent > child { selector de hijos}
+parent { selector de parent }
+
+<div>
+    <div>
+    ...
+    </div>
+    <div>...</div> // hermanos
+    <div>...</div>
+</div>
+*/
+
+/* Pintamos los botones de funcionalidades (no dígitos) de otro color con pseudo-selectores */
+/* > es el operador para seleccionar children o hijos */
+.row:first-of-type > div {
+    background-color: grey;
+}
+/* Sintaxis nueva (2024?) */
+.row {
+    div:last-of-type {
+        background-color: grey;
+    }
+}
+.rows + div {
+    background-color: red;
+    display: none; /* comentar línea para ver */
+    /* Se aplica a partir del div que está "después" del elemento con la clase .rows */
+}
+
+div ~ div {
+    /* background-color: green;*/
+    /* Se aplica entre siblings o hermanos */
+    border: 0;
 }
