@@ -1,10 +1,14 @@
 // Seleccionamos los 20 botones:
 const divs = document.querySelectorAll(".row div"); /* array de 20 botones */
+
 for(let div of divs){
     // console.log(div.innerText)
     div.addEventListener('click', function(){
         let contenido = div.innerText;
-        console.log(contenido, esNumero(contenido));
+        console.group("info:")
+            console.log("contenido", "esNumero?", "esOpValida?")
+            console.log(contenido, "\t\t", esNumero(contenido), "\t\t", esOperacionValida(contenido));
+        console.groupEnd()
     });
 }
 
@@ -17,7 +21,22 @@ function esNumero(contenido) {
     return false;
 }
 
-const operacionesValidas = [",", "C"] // etc..
+const operacionesValidas = [
+    // operaciones básicas:
+    "+", "-", "×", "÷",
+    // borrar:
+    "C",
+    // coma decimal:
+    ",", 
+    // cambiar signo:
+    "+/-",
+    // igual (ejecuta la operación):
+    "="
+]
+
+function esOperacionValida(contenido) {
+    return operacionesValidas.includes(contenido);
+}
 
 function escribir(dato){
     let contenidoPrevio = document.getElementById("display").innerText;
