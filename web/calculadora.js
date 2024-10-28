@@ -52,3 +52,15 @@ function escribir(dato){
 // como hacemos que esta función se aplique a todos los botones?
 // 1. seleccionar con JS todos los divs botones
 // 2. aplicar esta función generalizada a todos
+
+// TODO: 
+/**
+ * diferencias dígitos de operaciones > si es digito se escribe, si es op se registra o escribe
+ * En caso de = se realiza la operación > si no hay op no se hace nada
+ * Funcionalidad de borrar
+ * Funcionalidad de coma decimal
+ * Funcionalidad de cambio de signo
+ * 
+ * ---
+ * Versión con math.js
+ */
