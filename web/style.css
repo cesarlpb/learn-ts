@@ -1,0 +1,60 @@
+/* Selector de clase container */
+/* las clases se pueden repetir */
+.container {
+    background-color: brown;
+    padding: 1rem; /* 1rem = 16px */
+    max-width: 400px;
+    margin: 0 auto; /* centrado hhorizontal con margin */
+}
+/* Selector de id */
+/* id -> debe ser único en el documento */
+/* id (máxima prioridad) > clase */
+#display {
+    background-color: lightgray;
+    color: black;
+    font-size: 2rem;
+    padding: 1rem;
+    text-align: end;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    border-radius: 0.5rem;
+    margin-bottom: 1rem;
+}
+.row {
+    border: 1px solid black;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    min-height: 2rem;
+    background-color: burlywood;
+    color:black;
+}
+/* 
+top     - arriba
+bottom  - abajo
+
+left/right - izq / der
+*/
+.row:first-of-type {
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+.row:last-of-type {
+    border-bottom-left-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+}
+/* Selectores de div dentro de clase row */
+.row > div {
+    background-color: lightgray;
+    padding: 0.33rem;
+    margin: 0.25rem;
+    width: 1.5rem;
+    text-align: center;
+    border-radius: 0.25rem;
+    box-shadow: 1px 1px gray;
+}
+/* hover := acción de colocar el cursor por encima de un elemento (no hace falta hacer click) */
+.row > div:hover {
+    background-color: gray;
+    box-shadow: 1px 1px lightgrey;
+    top: 1px;
+}

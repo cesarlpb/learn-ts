@@ -1,16 +1,57 @@
 <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vite + TS</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
-  </head>
-  <body>
-    <h1>Calculadora</h1>
-    <p>Calcudora de operaciones elementales con HTML, CSS y JS.</p>
-    <!-- 
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Calculadora</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+  <!-- Importamos hoja de estilos custom de la calculadora -->
+  <!-- Así, esta hoja tiene prioridad -->
+  <!-- link:css + Tab o Enter -->
+  <link rel="stylesheet" href="style.css">
+  <!-- Si vemos error 404 en consola -> mirar ruta, mirar si existe archivo -> buscar ayuda -->
+</head>
+
+<body>
+  <h1>Calculadora</h1>
+  <p>Calculadora de operaciones elementales con HTML, CSS y JS.</p>
+
+  <!-- Contenedor de la calculadora -->
+  <div class="container">
+    
+    <!-- Elemento pantalla o display de la calculadora -->
+    <div id="display">0.0</div>
+    
+    <!-- Contenedor directo de filas para usar pseudoselectores -->
+    <div class="rows">
+      <!-- fila 1 -->
+      <div class="row">
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+      </div>
+      <!-- fila 2 -->
+      <div class="row">
+        <div>5</div>
+        <div>6</div>
+        <div>7</div>
+        <div>8</div>
+      </div>
+      <!-- fila 3 -->
+      <div class="row">
+      <div>9</div>
+      <div>10</div>
+      <div>11</div>
+      <div>12</div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- 
     Calculadora:
     - grid -> cuadrícula
     - 10 - 12 botones
@@ -20,7 +61,8 @@
       - calcular con =
     - presentar la información en el display o pantalla 
     -->
-    <div id="app"></div>
-    <script type="module" src="/src/main.ts"></script>
-  </body>
+  <div id="app"></div>
+  <script type="module" src="/src/main.ts"></script>
+</body>
+
 </html>
