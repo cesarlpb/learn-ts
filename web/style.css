@@ -106,3 +106,15 @@ div ~ div {
     /* Se aplica entre siblings o hermanos */
     border: 0;
 }
+
+/* Pintamos el botón +/- */
+.row:last-of-type > div:first-of-type,
+/* Pintamos el botón de coma decimal */
+.row:last-of-type > div:nth-child(3) {
+    background-color: grey;
+    /* En CSS se empieza a contar en 1
+    por eso penúltimo es el 3
+    */
+}
+
+
