@@ -1,0 +1,35 @@
+// Seleccionamos los 20 botones:
+const divs = document.querySelectorAll(".row div"); /* array de 20 botones */
+for(let div of divs){
+    // console.log(div.innerText)
+    div.addEventListener('click', function(){
+        let contenido = div.innerText;
+        console.log(contenido, esNumero(contenido));
+    });
+}
+
+// Hoisting
+function esNumero(contenido) {
+    let num = parseInt(contenido);
+    if(num == contenido){
+        return true;
+    }
+    return false;
+}
+
+const operacionesValidas = [",", "C"] // etc..
+
+function escribir(dato){
+    let contenidoPrevio = document.getElementById("display").innerText;
+    // TODO: esto no funciona para la tecla 0
+    if(contenidoPrevio == "0"){
+        document.getElementById("display").innerText = dato;
+    } else {
+        document.getElementById("display").innerText += dato;
+    }
+    console.log(dato);
+}
+
+// como hacemos que esta función se aplique a todos los botones?
+// 1. seleccionar con JS todos los divs botones
+// 2. aplicar esta función generalizada a todos
