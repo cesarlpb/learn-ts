@@ -15,9 +15,15 @@ for(let div of divs){
         if(esNumero(contenido)){
             escribir(contenido);
             // guardar número -> a, b
+            // si no hay op -> se guarda en a
+            registrarNumero();
         } else {
             // Cambio: hay que permitir que solo escriba números y lo demás lo guarde como operación:
             registrarOperacion(contenido);
+            // borramos todo del display
+            if(contenido != "="){
+                borrarTodo();
+            }  
         }
     });
 }
@@ -38,13 +44,7 @@ const listaOperaciones = {
     "×": function multiplicar(a, b){ return a * b }, 
     "÷": function dividir(a, b){ return a / b },
     // borrar:
-    "C": function borrarTodo(){
-        // buscar el display
-        let valorDisplay = document.getElementById("display");
-        // colocar el innerText como "0"
-        valorDisplay.innerText = "0";
-        console.log("display borrado")
-    }, 
+    "C": borrarTodo, 
     "<": function borrarCaracter(){
         // leer el display actual
         let valorDisplay = document.getElementById("display");
@@ -63,7 +63,26 @@ const listaOperaciones = {
     // cambiar signo:
     "+/-": function cambiarSigno(){},
     // igual (ejecuta la operación):
-    "=": function calcular(){}
+    "=": function calcular(){
+        
+        // assertive clauses -> hacer if descartando lo que no te vale primero
+        if(a === undefined){ return; }
+        if(b === undefined){ return;}
+        if(operacionSeleccionada === undefined){ return; }
+        
+        // lee a, b y operacionSeleccionada
+        // son globales
+
+        // consigue la fn a ejecutar de la op
+        const fn = listaOperaciones[operacionSeleccionada] // peligro: nos puede dar undefined si la variable es undefined -> ya no es posible por línea 69
+
+        // realiza la op -> ejecuta la fn 
+        const res = fn(a, b)
+        // actualiza el display
+        let display = document.getElementById("display");
+        display.innerText = res; // number -> string
+        console.log(a, b, operacionSeleccionada, res)
+    }
 }
 
 // variable -> operacion actual -> "+" "-" ... 
@@ -78,6 +97,46 @@ const listaOperaciones = {
 // Se puede conseguir el comportamiento deseado con
 // if o switch pero vamos a usar la
 // estructura de datos de objeto para introducir su uso => tiempo constante
+
+function registrarNumero(){
+    // casting (conversión) -> transformamos string a number:
+    let valorDisplay = document.getElementById("display").innerText;
+    let num = Number(valorDisplay);
+    
+    if(operacionSeleccionada){
+        
+        // si hay a -> guardamos en b
+        // reseteamos valores a 0
+        b = num;
+        
+    } else {
+        // no hay op seleccionada
+        
+        // si no hay a -> guardamos en a
+        // reseteamos valores a 0
+        a = num;
+        
+    }
+    // if(a === undefined || a === 0){
+    //     // si no hay a -> guardamos en a
+    //     // reseteamos valores a 0
+    //     a = num;
+    // } else if(b === undefined || b === 0) {
+    //     // si hay a -> guardamos en b
+    //     // reseteamos valores a 0
+    //     b = num;
+    // }
+    // Si hay valor no se sobreescribe <- ojo
+    console.log(a, b)
+}
+
+function borrarTodo(){
+    // buscar el display
+    let valorDisplay = document.getElementById("display");
+    // colocar el innerText como "0"
+    valorDisplay.innerText = "0";
+    console.log("display borrado")
+}
 
 function registrarOperacion(op){
     // op para guardar -> "+", "-", "×", "÷"
