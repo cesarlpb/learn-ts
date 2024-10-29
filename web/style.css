@@ -117,4 +117,11 @@ div ~ div {
     */
 }
 
-
+/* Ocultar un elemento con CSS */
+/*
+    display: none; -> hace que el elemento tenga tamaño 0 -> pero no desaparece del código
+    visibility: hidden; -> se usa cuando quieres mantener el tamaño del elemento pero que no se vea
+*/
+.row:first-of-type > div:first-of-type {
+    visibility: hidden;
+}
