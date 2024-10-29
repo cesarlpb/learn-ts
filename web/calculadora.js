@@ -40,12 +40,24 @@ const listaOperaciones = {
     // borrar:
     "C": function borrarTodo(){
         // buscar el display
-        let display = document.getElementById("display");
+        let valorDisplay = document.getElementById("display");
         // colocar el innerText como "0"
-        display.innerText = "0";
+        valorDisplay.innerText = "0";
         console.log("display borrado")
     }, 
-    "<": function borrarCaracter(){},
+    "<": function borrarCaracter(){
+        // leer el display actual
+        let valorDisplay = document.getElementById("display");
+        // quitas el último caracter 
+        // y colocas el valor modificado en el display
+        if(valorDisplay.innerText.length > 1){
+            valorDisplay.innerText = valorDisplay.innerText.slice(0, valorDisplay.innerText.length - 1);
+        } else {
+            valorDisplay.innerText = "0";
+        }
+        
+        console.log(valorDisplay.innerText)
+    },
     // coma decimal:
     ",": function agregarComaDecimal(){}, 
     // cambiar signo:
