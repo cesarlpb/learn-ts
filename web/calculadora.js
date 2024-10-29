@@ -1,5 +1,7 @@
 // Seleccionamos los 20 botones:
 const divs = document.querySelectorAll(".row div"); /* array de 20 botones */
+let a, b;
+let operacionSeleccionada; // "+" -> se guarda hasta click en "=", "C" -> se ejecuta enseguida...
 
 for(let div of divs){
     // console.log(div.innerText)
@@ -9,6 +11,14 @@ for(let div of divs){
             console.log("contenido", "esNumero?", "esOpValida?")
             console.log(contenido, "\t\t", esNumero(contenido), "\t\t", esOperacionValida(contenido));
         console.groupEnd()
+        // si es número:
+        if(esNumero(contenido)){
+            escribir(contenido);
+            // guardar número -> a, b
+        } else {
+            // Cambio: hay que permitir que solo escriba números y lo demás lo guarde como operación:
+            registrarOperacion(contenido);
+        }
     });
 }
 
@@ -21,20 +31,60 @@ function esNumero(contenido) {
     return false;
 }
 
-const operacionesValidas = [
+const listaOperaciones = {
     // operaciones básicas:
-    "+", "-", "×", "÷",
+    "+": function sumar(a, b){ return a + b }, 
+    "-": function restar(a, b){ return a - b }, 
+    "×": function multiplicar(a, b){ return a * b }, 
+    "÷": function dividir(a, b){ return a / b },
     // borrar:
-    "C",
+    "C": function borrarTodo(){
+        // buscar el display
+        let display = document.getElementById("display");
+        // colocar el innerText como "0"
+        display.innerText = "0";
+        console.log("display borrado")
+    }, 
+    "<": function borrarCaracter(){},
     // coma decimal:
-    ",", 
+    ",": function agregarComaDecimal(){}, 
     // cambiar signo:
-    "+/-",
+    "+/-": function cambiarSigno(){},
     // igual (ejecuta la operación):
-    "="
-]
+    "=": function calcular(){}
+}
+
+// variable -> operacion actual -> "+" "-" ... 
+// a y b para guardar números
+
+// num op num = -> resuelve
+
+// + -> sumar
+// - -> restar
+// etc
+
+// Se puede conseguir el comportamiento deseado con
+// if o switch pero vamos a usar la
+// estructura de datos de objeto para introducir su uso => tiempo constante
+
+function registrarOperacion(op){
+    // op para guardar -> "+", "-", "×", "÷"
+    const operacionesGuardar = ["+", "-", "×", "÷"];
+    // op para realizar enseguida: "C", "<", "+/-", ",", "="
+    const operacionesInmediatas = ["C", "<", "+/-", ",", "="];
+    if(operacionesGuardar.includes(op)){
+        operacionSeleccionada = op;
+        console.log("op actual:", operacionSeleccionada);
+    } else if (operacionesInmediatas.includes(op)){
+        // tomamos la operación del obj con la lista:
+        const fn = listaOperaciones[op];
+        // realizamos la operación:
+        fn();
+    }
+}
 
 function esOperacionValida(contenido) {
+    let operacionesValidas = Object.keys(listaOperaciones);
     return operacionesValidas.includes(contenido);
 }
 
@@ -46,7 +96,6 @@ function escribir(dato){
     } else {
         document.getElementById("display").innerText += dato;
     }
-    console.log(dato);
 }
 
 // como hacemos que esta función se aplique a todos los botones?
