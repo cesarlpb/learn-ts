@@ -2,6 +2,7 @@
 const divs = document.querySelectorAll(".row div"); /* array de 20 botones */
 let a, b;
 let operacionSeleccionada; // "+" -> se guarda hasta click en "=", "C" -> se ejecuta enseguida...
+const display = document.getElementById("display");
 
 for(let div of divs){
     // console.log(div.innerText)
@@ -47,16 +48,17 @@ const listaOperaciones = {
     "C": borrarTodo, 
     "<": function borrarCaracter(){
         // leer el display actual
-        let valorDisplay = document.getElementById("display");
+        // pasado a variable global
+
         // quitas el último caracter 
         // y colocas el valor modificado en el display
-        if(valorDisplay.innerText.length > 1){
-            valorDisplay.innerText = valorDisplay.innerText.slice(0, valorDisplay.innerText.length - 1);
+        if(display.innerText.length > 1){
+            display.innerText = display.innerText.slice(0, display.innerText.length - 1);
         } else {
-            valorDisplay.innerText = "0";
+            display.innerText = "0";
         }
         
-        console.log(valorDisplay.innerText)
+        console.log(display.innerText)
     },
     // coma decimal:
     ",": function agregarComaDecimal(){}, 
@@ -79,9 +81,12 @@ const listaOperaciones = {
         // realiza la op -> ejecuta la fn 
         const res = fn(a, b)
         // actualiza el display
-        let display = document.getElementById("display");
+        // pasado a global
+
         display.innerText = res; // number -> string
         console.log(a, b, operacionSeleccionada, res)
+
+        resetearVariables();
     }
 }
 
@@ -98,9 +103,18 @@ const listaOperaciones = {
 // if o switch pero vamos a usar la
 // estructura de datos de objeto para introducir su uso => tiempo constante
 
+function resetearVariables(){
+    // reseteamos variables globales:
+    a = undefined;
+    b = undefined;
+    operacionSeleccionada = undefined;
+
+    console.log("variables reseteadas")
+}
+
 function registrarNumero(){
     // casting (conversión) -> transformamos string a number:
-    let valorDisplay = document.getElementById("display").innerText;
+    let valorDisplay = display.innerText;
     let num = Number(valorDisplay);
     
     if(operacionSeleccionada){
@@ -132,9 +146,11 @@ function registrarNumero(){
 
 function borrarTodo(){
     // buscar el display
-    let valorDisplay = document.getElementById("display");
+    // pasado a global
+
     // colocar el innerText como "0"
-    valorDisplay.innerText = "0";
+    display.innerText = "0";
+
     console.log("display borrado")
 }
 
@@ -160,12 +176,15 @@ function esOperacionValida(contenido) {
 }
 
 function escribir(dato){
-    let contenidoPrevio = document.getElementById("display").innerText;
+    if(a === undefined && b === undefined && operacionSeleccionada === undefined){
+        borrarTodo();
+    }
+    let contenidoPrevio = display.innerText;
     // TODO: esto no funciona para la tecla 0
     if(contenidoPrevio == "0"){
-        document.getElementById("display").innerText = dato;
+        display.innerText = dato;
     } else {
-        document.getElementById("display").innerText += dato;
+        display.innerText += dato;
     }
 }
 
