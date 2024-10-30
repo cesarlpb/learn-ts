@@ -22,7 +22,7 @@ for(let div of divs){
             // Cambio: hay que permitir que solo escriba números y lo demás lo guarde como operación:
             registrarOperacion(contenido);
             // borramos todo del display
-            if(contenido != "=" && contenido != ","){
+            if(contenido != "=" && contenido != "," && contenido != "+/-"){
                 borrarTodo();
             }  
         }
@@ -91,6 +91,7 @@ function registrarNumero(){
         // si hay a -> guardamos en b
         // reseteamos valores a 0
         b = num;
+        console.log(b)
         
     } else {
         // no hay op seleccionada
@@ -98,6 +99,7 @@ function registrarNumero(){
         // si no hay a -> guardamos en a
         // reseteamos valores a 0
         a = num;
+        console.log(a)
         
     }
     // if(a === undefined || a === 0){

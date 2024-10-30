@@ -56,7 +56,12 @@ function agregarComaDecimal(){
 }
 
 function cambiarSigno(){
-
+    // leer display
+    let valorDisplay = display.innerText;
+    // multiplicamos por -1 y actualizamos display
+    valorDisplay *= -1;
+    display.innerText = valorDisplay;
+    registrarNumero();
 }
 
 function calcular(){
@@ -79,6 +84,10 @@ function calcular(){
 
     display.innerText = `${res.toFixed(MAX_DECIMALES)}`.replace(".", ","); // number -> string -> formato de coma decimal
     console.log(a, b, operacionSeleccionada, res)
+
+    // Modificación: 
+    //  si es int, no ponemos decimales
+    //  si es negativo, reducimos los MAX_DECIMALES en 1 o 2
 
     resetearVariables();
 }
