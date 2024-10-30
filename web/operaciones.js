@@ -82,12 +82,21 @@ function calcular(){
     // actualiza el display
     // pasado a global
 
-    display.innerText = `${res.toFixed(MAX_DECIMALES)}`.replace(".", ","); // number -> string -> formato de coma decimal
-    console.log(a, b, operacionSeleccionada, res)
-
+    // Lógica para presentar el resultado:
+    
     // Modificación: 
     //  si es int, no ponemos decimales
-    //  si es negativo, reducimos los MAX_DECIMALES en 1 o 2
+    //  si es negativo, reducimos los MAX_DECIMALES en 1 => comprobado que funciona
+    
+    if(Number.isInteger(res)){
+        display.innerText = `${res}`;
+    } else if (res >= 0) {
+        display.innerText = `${res.toFixed(MAX_DECIMALES)}`.replace(".", ","); // number -> string -> formato de coma decimal
+    } else {
+        display.innerText = `${res.toFixed(MAX_DECIMALES - 1)}`.replace(".", ",");
+    }
+    
+    console.log(a, b, operacionSeleccionada, res)
 
     resetearVariables();
 }
