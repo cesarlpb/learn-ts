@@ -1,10 +1,26 @@
-function sumar(a, b){ return a + b }
+// Constantes globales
+const MAX_DECIMALES = 14; // los decimales que caben en una fila
+//
 
-function restar(a, b){ return a - b }
+class Calculadora {
+    // métodos
+}
 
-function multiplicar(a, b){ return a * b }
+function sumar(a, b){ 
+    return a + b 
+}
 
-function dividir(a, b){ return a / b }
+function restar(a, b){ 
+    return a - b 
+}
+
+function multiplicar(a, b){ 
+    return a * b 
+}
+
+function dividir(a, b){ 
+    return a / b 
+}
 
 function borrarCaracter(){
     // leer el display actual
@@ -31,9 +47,17 @@ function borrarTodo(){
     console.log("display borrado")
 }
 
-function agregarComaDecimal(){}
+function agregarComaDecimal(){
+    // leer display
+    let valorDisplay = display.innerText;
+    // agregar . o , y actualizar display
+    valorDisplay += ",";
+    display.innerText = valorDisplay;
+}
 
-function cambiarSigno(){}
+function cambiarSigno(){
+
+}
 
 function calcular(){
         
@@ -53,7 +77,7 @@ function calcular(){
     // actualiza el display
     // pasado a global
 
-    display.innerText = res; // number -> string
+    display.innerText = `${res.toFixed(MAX_DECIMALES)}`.replace(".", ","); // number -> string -> formato de coma decimal
     console.log(a, b, operacionSeleccionada, res)
 
     resetearVariables();

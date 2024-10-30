@@ -22,7 +22,7 @@ for(let div of divs){
             // Cambio: hay que permitir que solo escriba números y lo demás lo guarde como operación:
             registrarOperacion(contenido);
             // borramos todo del display
-            if(contenido != "="){
+            if(contenido != "=" && contenido != ","){
                 borrarTodo();
             }  
         }
@@ -80,7 +80,11 @@ function resetearVariables(){
 function registrarNumero(){
     // casting (conversión) -> transformamos string a number:
     let valorDisplay = display.innerText;
-    let num = Number(valorDisplay);
+    // convertimos entrada de display a número, si tiene coma decimal -> NaN
+    // para evitar esta situación, debemos cambiar la coma por punto decimal 
+    // antes de convertir a number -> string.replace()
+    let valorDisplayFormateado = valorDisplay.replace(",", ".");
+    let num = Number(valorDisplayFormateado);
     
     if(operacionSeleccionada){
         
