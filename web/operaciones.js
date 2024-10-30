@@ -62,6 +62,10 @@ function cambiarSigno(){
     valorDisplay *= -1;
     display.innerText = valorDisplay;
     registrarNumero();
+    
+    // BUG: cuando se presentar resultado, no debería ser posible clicar en +/- o no debería hacer nada porque sale NaN -> undefined * 1 -> NaN
+
+    // sucede cuando hay decimales
 }
 
 function calcular(){
@@ -87,7 +91,7 @@ function calcular(){
     // Modificación: 
     //  si es int, no ponemos decimales
     //  si es negativo, reducimos los MAX_DECIMALES en 1 => comprobado que funciona
-    
+
     if(Number.isInteger(res)){
         display.innerText = `${res}`;
     } else if (res >= 0) {
