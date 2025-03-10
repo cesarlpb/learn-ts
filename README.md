@@ -1,13 +1,13 @@
 # learn-ts
 TS time!
 
-Teoría: (TS en W3schools)[https://www.w3schools.com/typescript/typescript_intro.php]
+Teoría: [TS en W3schools]([text](https://www.w3schools.com/typescript/typescript_intro.php))
 
 ---
 
 ## Node
 
-- Instalar Node 20 o 22.14.0 (stable): (Página oficial de Node)[https://nodejs.org/]
+- Instalar Node 20 o 22.14.0 (stable): [Página oficial de Node](https://nodejs.org/)
 
 - Comprobar que funciona el comando `node -v`
 
