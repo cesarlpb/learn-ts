@@ -16,31 +16,32 @@ Teoría: [TS en W3schools]([text](https://www.w3schools.com/typescript/typescrip
 ## Typescript
 
 - Instalamos Typescript:
-```
-    npm install typescript --save-dev
-```
-- Corremos TS:
 
 ```bash
-    npx tsc
+    # Nota: --save-dev -> dependencia de desarrollo
+    npm install typescript --save-dev # paquete para usar TS
 ```
+
 - Config en `tsconfig.json`:
 
 ```json
     {
-    "include": ["src"],
-    "compilerOptions": {
-        ...
-        "outDir": "./build"
-    }
+        "include": ["src"],
+        "compilerOptions": {
+            ...
+            "outDir": "./build"
+        }
     }
 ```
 
-Build (genera `.js` a partir de `.ts`):
+- Después de crear el `tsconfig.json`, ejecutamos:
 
 ```bash
     npx tsc
 ```
+
+Esto hace el "build" ( => genera `.js` a partir de `.ts`):
+
 
 ## Comprobaciones de tipos en runtime (.js) con Zod:
 
