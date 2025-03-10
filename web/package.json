@@ -1,0 +1,15 @@
+{
+  "name": "web",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "node index.js"
+  },
+  "keywords": ["Typescript"],
+  "author": "César P.",
+  "license": "ISC",
+  "description": "Ejemplo de uso de TS en web",
+  "devDependencies": {
+    "typescript": "^5.8.2"
+  }
+}
