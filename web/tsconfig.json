@@ -2,6 +2,6 @@
   "include": ["src"],
   "compilerOptions": {
       "outDir": "./build",
-      "target": "ES2016",  // para que use let, const en JS
+      "target": "ES2020",  // para que use let, const en JS
   }
 }
