@@ -1,4 +1,25 @@
 {
+  "name": "learn-ts",
+  "version": "1.0.0",
+  "description": "ts",
+  "keywords": [
+    "TS"
+  ],
+  "homepage": "https://github.com/cesarlpb/learn-ts#readme",
+  "bugs": {
+    "url": "https://github.com/cesarlpb/learn-ts/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cesarlpb/learn-ts.git"
+  },
+  "license": "ISC",
+  "author": "César P.",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
   "devDependencies": {
     "typescript": "^5.8.2"
   }
