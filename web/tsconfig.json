@@ -1,7 +1,0 @@
-{
-  "include": ["src"],
-  "compilerOptions": {
-      "outDir": "./build",
-      "target": "ES2020",  // para que use let, const en JS
-  }
-}
